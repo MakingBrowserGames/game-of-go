@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width">
+
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/css/syntax.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/main.css">
+
+  </head>
+  <body>
+    <style>
+      .goBoard {
+        box-sizing: border-box;
+        display: inline-block;
+        border: 1px solid #552222;
+        background-color: #e9c372;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+      }
+      .goBoard.white .cell:not(.black):not(.white):hover:after {
+        left: 0;
+        box-sizing: border-box;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px #404040 , inset -3px -3px 5px gray;
+        opacity: 0.5;
+      }
+      .goBoard.white .cell:not(.black):not(.white):hover:before {
+        display: none;
+      }
+      .goBoard.black .cell:not(.black):not(.white):hover:after {
+        box-sizing: border-box;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px #404040;
+        background-image: -webkit-radial-gradient(40% 40%, circle closest-corner, #404040 0%, transparent 90%);
+        background-image: -moz-radial-gradient(40% 40%, circle closest-side, #404040 0%, transparent 90%);
+        opacity: 0.5;
+      }
+      .goBoard.black .cell:not(.black):not(.white):hover:before {
+        display: none;
+      }
+      .goBoard .row {
+        box-sizing: border-box;
+        font-size: 0px;
+      }
+      .goBoard .row .cell {
+        width: 20px;
+        height: 21px;
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+      }
+      .goBoard .row .cell:after {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        background-color: #552222;
+        width: 100%;
+        height: 1px;
+      }
+      .goBoard .row .cell:before {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        content: "";
+        background-color: #552222;
+        width: 1px;
+        height: 100%;
+      }
+      .goBoard .row .cell:first-child:after {
+        width: 50%;
+        left: 50%;
+      }
+      .goBoard .row .cell:last-child:after {
+        width: 50%;
+        right: 50%;
+      }
+      .goBoard .row .cell.star {
+        background-image: -webkit-radial-gradient(center, circle closest-side, #552222 20%, transparent 30%);
+        background-image: -moz-radial-gradient(center, circle closest-side, #552222 20%, transparent 30%);
+      }
+      .goBoard .row .cell.black:after {
+        box-sizing: border-box;
+        left: 0;
+        background-color: black;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px #404040;
+        background-image: -webkit-radial-gradient(40% 40%, circle closest-corner, #404040 0%, transparent 90%);
+        background-image: -moz-radial-gradient(40% 40%, circle closest-side, #404040 0%, transparent 90%);
+      }
+      .goBoard .row .cell.white:after {
+        left: 0;
+        box-sizing: border-box;
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        box-shadow: 1px 1px 1px #404040 , inset -3px -3px 5px gray;
+      }
+      .goBoard .row:first-child .cell:before {
+        height: 50%;
+        top: 50%;
+      }
+      .goBoard .row:last-child .cell:before {
+        height: 50%;
+        bottom: 50%;
+      }
+    </style>
+
+        {{ content }}
+      </body>
+    </html>
